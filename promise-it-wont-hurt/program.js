@@ -4,15 +4,20 @@ require('es6-promise');
     console.log("Printing things yo")
 });*/
 
-function attachTitle(arg1) {
-    return "DR. " + arg1;
+function parsePromised() {
+    return new Promise(function(fulfill, reject) {
+        try {
+            JSON.parse(process.argv[2]);
+            fulfill("YAY!");
+        } catch(e) {
+            reject(e);
+        }
+    });
 }
 
-var promise = new Promise(function(fulfill, reject) {
-    fulfill("MANHATTAN");
-})
+var promise = parsePromised();
 
-promise.then(attachTitle).then(console.log);
+promise.then(console.log, console.log);
 
 /*function onReject(error) {
     console.log(error.message);
