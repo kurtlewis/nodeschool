@@ -1,15 +1,18 @@
 require('es6-promise');
 
 var promise = new Promise(function (fulfill, reject) {
-    fulfill("PROMISE VALUE");
-    reject(new Error("I DID NOT FIRE"));
+    console.log("Printing things yo")
 });
 
-function onReject(error) {
-    console.log(error.message);
-}
+promise = Promise.reject(new Error("UH OH"));
 
-promise.then(console.log, onReject);
+/*function onReject(error) {
+    console.log(error.message);
+}*/
+
+promise.catch(function() { console.log(error.message)})
+
+//promise.then(console.log, onReject);
 console.log("MAIN PROGRAM")
 
 /*setTimeout(function(){
