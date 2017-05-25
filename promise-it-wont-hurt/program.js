@@ -1,7 +1,7 @@
 require('es6-promise');
 
 var promise = new Promise(function (fulfill, reject) {
-    fulfill("I FIRED");
+    fulfill("PROMISE VALUE");
     reject(new Error("I DID NOT FIRE"));
 });
 
@@ -10,6 +10,7 @@ function onReject(error) {
 }
 
 promise.then(console.log, onReject);
+console.log("MAIN PROGRAM")
 
 /*setTimeout(function(){
     console.log("TIMED OUT!");
