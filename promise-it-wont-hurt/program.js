@@ -2,11 +2,16 @@ require('es6-promise');
 
 var promise = new Promise(function (fulfill, reject) {
     setTimeout(function() {
-        fulfill("FULFILLED!")
+        var error = new Error("REJECTED!");
+        reject(error);
     }, 300);
 });
 
-promise.then(console.log);
+function onReject(error) {
+    console.log(error.message);
+}
+
+promise.then(console.log, onReject);
 
 /*setTimeout(function(){
     console.log("TIMED OUT!");
