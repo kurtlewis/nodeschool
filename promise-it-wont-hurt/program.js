@@ -1,10 +1,8 @@
 require('es6-promise');
 
 var promise = new Promise(function (fulfill, reject) {
-    setTimeout(function() {
-        var error = new Error("REJECTED!");
-        reject(error);
-    }, 300);
+    fulfill("I FIRED");
+    reject(new Error("I DID NOT FIRE"));
 });
 
 function onReject(error) {
